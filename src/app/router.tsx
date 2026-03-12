@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import { lazy, Suspense } from 'react';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 
 const LoginPage = lazy(() => import('@/pages/LoginPage.tsx'));
 const HomePage = lazy(() => import('@/pages/HomePage.tsx'));
@@ -25,7 +26,9 @@ export const router = createBrowserRouter([
     path: '/home',
     element: (
       <Suspense fallback={<div>Carregando...</div>}>
-        <HomePage />
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
       </Suspense>
     ),
   },

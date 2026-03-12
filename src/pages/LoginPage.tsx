@@ -1,8 +1,17 @@
-import LoginForm from '../features/auth/components/LoginForm';
-import RBDSLogo from '../assets/images/rbds-logo.png';
+import { Navigate } from 'react-router';
 import { Container } from '@/components/ui/Container';
+import { useAuthContext } from '@/features/auth/context/AuthContext';
+import LoginForm from '@/features/auth/components/LoginForm';
+import RBDSLogo from '@/assets/images/rbds-logo.png';
 
 const LoginPage = () => {
+  const { isAuthenticed } = useAuthContext();
+  const token = localStorage.getItem('token');
+
+  if (token && isAuthenticed) {
+    return <Navigate to='/home' replace />;
+  }
+
   return (
     <Container className='h-screen'>
       <div

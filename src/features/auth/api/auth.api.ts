@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios';
-import type { TLoginFormSchema } from '../schemas/login.schema';
-import type { ILoginResponse } from '../types/auth.types';
+import type { TLoginFormSchema } from '@/features/auth/schemas/login.schema';
+import type { ILoginResponse } from '@/features/auth/types/auth.types';
 
 export const authApi = {
   login: async (data: TLoginFormSchema): Promise<ILoginResponse> => {

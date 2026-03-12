@@ -1,10 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail, Lock } from 'lucide-react';
-import { Button } from '../../../components/ui/Button';
-import { Input } from '../../../components/ui/Input';
-import { loginSchema, type TLoginFormSchema } from '../schemas/login.schema';
-import { useAuth } from '../hooks/useAuth';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import {
+  loginSchema,
+  type TLoginFormSchema,
+} from '@/features/auth/schemas/login.schema';
+import { useAuth } from '@/features/auth/hooks/useAuth';
 import { Loading } from '@/components/ui/Loading';
 
 export const LoginForm = () => {

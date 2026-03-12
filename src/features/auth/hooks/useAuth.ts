@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { authApi } from '../api/auth.api';
-import type { TLoginFormSchema } from '../schemas/login.schema';
+import { authApi } from '@/features/auth//api/auth.api';
+import type { TLoginFormSchema } from '@/features/auth/schemas/login.schema';
 import { toast } from 'react-toastify';
-import { useAuthContext } from '../context/AuthContext';
+import { useAuthContext } from '@/features/auth/context/AuthContext';
 
 export const useAuth = () => {
-  const { setUser } = useAuthContext();
+  const { setUser, setIsAuthenticated } = useAuthContext();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ export const useAuth = () => {
         return;
       }
       setUser(response.data);
+      setIsAuthenticated(true);
       localStorage.setItem('token', response.data.account.jwt);
       toast.success('Login realizado com sucesso!');
       navigate('/home');
