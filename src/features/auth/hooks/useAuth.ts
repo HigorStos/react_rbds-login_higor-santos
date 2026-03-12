@@ -35,6 +35,8 @@ export const useAuth = () => {
   const logout = () => {
     try {
       setIsLoading(true);
+      setUser(null);
+      setIsAuthenticated(false);
       localStorage.clear();
       navigate('/login');
       toast.success('Logout realizado com sucesso!');
