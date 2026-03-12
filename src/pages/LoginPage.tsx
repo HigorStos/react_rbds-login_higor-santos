@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <Container className='h-screen'>
       <div
-        className='w-full h-full flex items-center justify-center flex-col bg-orange-400'
+        className='w-full h-full hidden sm:flex items-center justify-center flex-col bg-orange-400'
         style={{
           backgroundColor: '#F97316',
           backgroundImage: `
@@ -16,7 +16,7 @@ const LoginPage = () => {
           backgroundSize: '60px 60px',
         }}
       >
-        <Container className='w-2/3 h-full flex-col items-center'>
+        <Container className='w-11/12 sm:w-2/3 h-full flex-col items-center'>
           <p className='text-4xl text-center text-wrap text-white font-bold mb-6'>
             Portal do Colaborador RBDS
           </p>

@@ -1,15 +1,12 @@
 import { RouterProvider } from 'react-router';
+import { Providers } from './providers';
 import { router } from './router';
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <>
+    <Providers>
       <RouterProvider router={router} />
-      <ToastContainer position='top-right' autoClose={3000} />
-    </>
+    </Providers>
   );
 }
 

@@ -6,8 +6,6 @@ import { Input } from '../../../components/ui/Input';
 import { loginSchema, type TLoginFormSchema } from '../schemas/login.schema';
 import { useAuth } from '../hooks/useAuth';
 import { Loading } from '@/components/ui/Loading';
-import { toast } from 'react-toastify';
-import { useEffect } from 'react';
 
 export const LoginForm = () => {
   const {
@@ -18,13 +16,7 @@ export const LoginForm = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const { login, isLoading, error } = useAuth();
-
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
+  const { login, isLoading } = useAuth();
 
   function handleLogin(data: TLoginFormSchema) {
     login(data);
